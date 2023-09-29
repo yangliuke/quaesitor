@@ -1,1 +1,1 @@
-# qcm.github.io
+# Quaesitor Capital Management LLC
