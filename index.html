@@ -1,24 +1,339 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta name="description" content="Quaesitor Capital Management LLC"/>
-        <title>Quaesitor Capital</title>
-    </head>
-    <body>
-        <div style="border:5px solid black;margin-left:30px;margin-top:30px;margin-right:30px;margin-bottom:30px;padding:2ex;width:650px;">
-        <header>
-            <h1 style="font-size:50px">QUAESITOR CAPITAL</h1>
-        </header>
-        <section>
-            <p>
-                <em>“Out beyond ideas of wrongdoing and rightdoing, there is a field. I'll meet you there.”</em> - Rumi
-            </p>
-        </section>
-        <section>
-            <p>
-                Contact: info@quaesitorcapital.com
-            </p>
-        </section>
-        </div>
-    </body>
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Home - Quaesitor Capital Management LLC</title>
+  <link rel="icon" type="image/png" href="favicon.png">
+  <style>
+    html, body {
+      width: 100vw;
+      overflow-x: hidden;
+    }
+    body {
+      margin: 0;
+      font-family: 'Baskerville', serif;
+      background: #DC5D07;
+      color: #fff;
+      min-height: 100vh;
+      display: flex;
+      flex-direction: column;
+      font-style: italic;
+      font-weight: 300;
+      font-size: 2rem;
+    }
+    body.menu-disabled .hamburger {
+      pointer-events: none;
+      opacity: 0.1;
+    }
+    .disclaimer-overlay {
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(220, 93, 7, 0.97);
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      z-index: 10000;
+    }
+    .disclaimer-modal {
+      background: #fff;
+      color: #DC5D07;
+      max-width: 600px;
+      width: 90%;
+      padding: 40px;
+      border-radius: 4px;
+      text-align: center;
+      font-style: normal;
+    }
+    .disclaimer-modal h1 {
+      font-size: 2rem;
+      margin: 0 0 20px;
+      font-weight: 400;
+    }
+    .disclaimer-modal h2 {
+      font-size: 1.2rem;
+      margin: 0 0 30px;
+      font-weight: 400;
+      font-style: italic;
+    }
+    .disclaimer-modal p {
+      font-size: 1rem;
+      margin: 0 0 30px;
+      text-align: left;
+    }
+    .disclaimer-modal button {
+      background: #DC5D07;
+      color: white;
+      border: none;
+      padding: 15px 30px;
+      font-family: 'Baskerville', serif;
+      font-size: 1rem;
+      cursor: pointer;
+      border-radius: 2px;
+      transition: background-color 0.3s;
+    }
+    .disclaimer-modal button:hover {
+      background: #14543c;
+    }
+    .navbar {
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      padding: 24px 32px;
+      background: #DC5D07;
+      color: #fff;
+      font-style: normal;
+      position: relative;
+    }
+    .logo {
+      font-size: 2rem;
+      font-weight: 500;
+      letter-spacing: 2px;
+    }
+    .nav-links {
+      display: flex;
+      gap: 32px;
+      z-index: 2;
+    }
+    .hamburger {
+      display: none;
+      width: 32px;
+      height: 32px;
+      position: relative;
+      justify-content: center;
+      align-items: center;
+      cursor: pointer;
+      z-index: 10002;
+    }
+    .hamburger span {
+      position: absolute;
+      left: 0;
+      width: 100%;
+      height: 2px;
+      background: #fff;
+      border-radius: 2px;
+      transition: all 0.3s cubic-bezier(.4,2,.6,1);
+    }
+    .hamburger span:nth-child(1) {
+      top: 6px;
+    }
+    .hamburger span:nth-child(2) {
+      top: 15px;
+    }
+    .hamburger span:nth-child(3) {
+      top: 24px;
+    }
+    .hamburger.open span:nth-child(1) {
+      top: 15px;
+      transform: rotate(45deg);
+    }
+    .hamburger.open span:nth-child(2) {
+      opacity: 0;
+    }
+    .hamburger.open span:nth-child(3) {
+      top: 15px;
+      transform: rotate(-45deg);
+    }
+    .mobile-menu-overlay {
+      display: none;
+      position: fixed;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      background: rgba(220, 93, 7, 0.98);
+      z-index: 10001;
+      justify-content: center;
+      align-items: flex-start;
+      flex-direction: column;
+    }
+    .mobile-menu-overlay.active {
+      display: flex;
+    }
+    .mobile-menu-links {
+      display: flex;
+      flex-direction: column;
+      gap: 40px;
+      align-items: flex-start;
+      padding-left: 28px;
+      margin-top: 64px;
+    }
+    .mobile-menu-links a {
+      color: #fff;
+      font-size: 2.2rem;
+      text-decoration: none;
+      font-weight: 500;
+      letter-spacing: 0.3em;
+      text-align: left;
+      text-transform: uppercase;
+      font-family: 'Baskerville', serif;
+    }
+    .container {
+      max-width: 900px;
+      margin: 40px auto;
+      padding: 0 16px;
+      font-size: 1.5rem;
+      flex: 1 0 auto;
+      display: flex;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+    }
+    @media (max-width: 600px) {
+      .navbar {
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-between;
+        padding: 16px;
+      }
+      .logo {
+        font-size: 1.5rem;
+      }
+      .nav-links {
+        display: none;
+      }
+      .hamburger {
+        display: flex;
+        margin-top: 0;
+      }
+      .container {
+        margin: 24px auto;
+        font-size: 1.1rem;
+      }
+      .disclaimer-modal {
+        max-width: 95vw;
+        width: 95vw;
+        padding: 20px;
+        font-size: 0.95rem;
+      }
+      .disclaimer-modal h1 {
+        font-size: 1.2rem;
+      }
+      .disclaimer-modal h2 {
+        font-size: 1rem;
+      }
+      .disclaimer-modal p {
+        font-size: 0.95rem;
+      }
+      .disclaimer-modal button {
+        font-size: 1rem;
+        padding: 10px 18px;
+      }
+    }
+    .footer {
+      background: #DC5D07;
+      color: #fff;
+      text-align: left;
+      padding: 24px 0 24px 32px;
+      font-size: 1rem;
+      position: relative;
+      bottom: 0;
+      width: 100%;
+      flex-shrink: 0;
+      font-style: normal;
+    }
+    @media (max-width: 600px) {
+      .footer {
+        padding: 16px 0 16px 16px;
+      }
+    }
+    .main-description {
+      font-size: 2rem;
+      font-weight: 200;
+      font-family: 'Baskerville', serif;
+      text-align: left;
+    }
+    .nav-links a, .mobile-menu-links a {
+      color: #fff;
+      text-decoration: none;
+      font-size: 1rem;
+      font-weight: 500;
+      font-style: normal;
+    }
+    .nav-links a:hover, .nav-links a.active, .mobile-menu-links a:hover, .mobile-menu-links a.active {
+      text-decoration: underline;
+      color: #F8D4B3;
+    }
+  </style>
+</head>
+<body>
+  <div class="disclaimer-overlay" id="disclaimerOverlay" style="display:none">
+    <div class="disclaimer-modal">
+      <h1>Welcome to Quaesitor Capital Management LLC</h1>
+      <h2>(the "Company")</h2>
+      <p>Please read the disclaimer below carefully. You must accept its terms before you can proceed.</p>
+      <p>Users of this website are responsible for observing all applicable laws and regulations in their 
+        relevant jurisdictions before proceeding to access the information contained herein. 
+        By proceeding to access the information, users are deemed to have represented and warranted that the applicable laws 
+        and regulations of their relevant jurisdictions allow them to do so.</p>
+      <button onclick="acceptDisclaimer()">Accept and Enter Site »</button>
+    </div>
+  </div>
+  <nav class="navbar">
+    <div class="logo">Quaesitor Capital</div>
+    <div class="nav-links">
+      <a href="index.html" class="active">Home</a>
+      <a href="letters.html">Letters</a>
+      <a href="long-term.html">Long-term</a>
+    </div>
+    <div class="hamburger" id="hamburgerMenu">
+      <span></span>
+      <span></span>
+      <span></span>
+    </div>
+  </nav>
+  <div class="mobile-menu-overlay" id="mobileMenuOverlay">
+    <div class="mobile-menu-links">
+      <a href="index.html">Home</a>
+      <a href="letters.html">Letters</a>
+      <a href="long-term.html">Long-term</a>
+    </div>
+  </div>
+  <div class="container">
+    <p class="main-description">"Out beyond ideas of wrongdoing and rightdoing, there is a field. I'll meet you there." - Rumi.</p>
+  </div>
+  <footer class="footer">
+    &copy; 2025 Quaesitor Capital Management LLC. All rights reserved.
+  </footer>
+  <script>
+    // Show disclaimer overlay as early as possible if not accepted
+    (function() {
+      if (!localStorage.getItem('disclaimerAccepted')) {
+        document.addEventListener('DOMContentLoaded', function() {
+          document.getElementById('disclaimerOverlay').style.display = 'flex';
+          document.body.classList.add('menu-disabled');
+        });
+      }
+    })();
+    function acceptDisclaimer() {
+      document.getElementById('disclaimerOverlay').style.display = 'none';
+      localStorage.setItem('disclaimerAccepted', 'true');
+      document.body.classList.remove('menu-disabled');
+    }
+    // Hamburger menu for mobile
+    const hamburger = document.getElementById('hamburgerMenu');
+    const mobileMenu = document.getElementById('mobileMenuOverlay');
+    hamburger && hamburger.addEventListener('click', function() {
+      const isOpen = hamburger.classList.toggle('open');
+      if (isOpen) {
+        mobileMenu.classList.add('active');
+        document.body.style.overflow = 'hidden';
+      } else {
+        mobileMenu.classList.remove('active');
+        document.body.style.overflow = '';
+      }
+    });
+    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
+      link.addEventListener('click', () => {
+        mobileMenu.classList.remove('active');
+        hamburger.classList.remove('open');
+        document.body.style.overflow = '';
+      });
+    });
+  </script>
+</body>
 </html>
