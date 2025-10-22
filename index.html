@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Home - Quaesitor Capital Management LLC</title>
+  <title>Quaesitor Capital</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <style>
     html, body {
@@ -13,7 +13,7 @@
     body {
       margin: 0;
       font-family: 'Baskerville', serif;
-      background: #DC5D07;
+      background: #1C1C1C;
       color: #fff;
       min-height: 100vh;
       display: flex;
@@ -32,7 +32,7 @@
       left: 0;
       width: 100vw;
       height: 100vh;
-      background: rgba(220, 93, 7, 0.97);
+      background: #1C1C1C;
       display: flex;
       justify-content: center;
       align-items: center;
@@ -40,7 +40,7 @@
     }
     .disclaimer-modal {
       background: #fff;
-      color: #DC5D07;
+      color: #1C1C1C;
       max-width: 600px;
       width: 90%;
       padding: 40px;
@@ -65,7 +65,7 @@
       text-align: left;
     }
     .disclaimer-modal button {
-      background: #DC5D07;
+      background: #1C1C1C;
       color: white;
       border: none;
       padding: 15px 30px;
@@ -76,14 +76,14 @@
       transition: background-color 0.3s;
     }
     .disclaimer-modal button:hover {
-      background: #14543c;
+      background: #2C2C2C;
     }
     .navbar {
       display: flex;
       justify-content: space-between;
       align-items: center;
       padding: 24px 32px;
-      background: #DC5D07;
+      background: #1C1C1C;
       color: #fff;
       font-style: normal;
       position: relative;
@@ -98,79 +98,7 @@
       gap: 32px;
       z-index: 2;
     }
-    .hamburger {
-      display: none;
-      width: 32px;
-      height: 32px;
-      position: relative;
-      justify-content: center;
-      align-items: center;
-      cursor: pointer;
-      z-index: 10002;
-    }
-    .hamburger span {
-      position: absolute;
-      left: 0;
-      width: 100%;
-      height: 2px;
-      background: #fff;
-      border-radius: 2px;
-      transition: all 0.3s cubic-bezier(.4,2,.6,1);
-    }
-    .hamburger span:nth-child(1) {
-      top: 6px;
-    }
-    .hamburger span:nth-child(2) {
-      top: 15px;
-    }
-    .hamburger span:nth-child(3) {
-      top: 24px;
-    }
-    .hamburger.open span:nth-child(1) {
-      top: 15px;
-      transform: rotate(45deg);
-    }
-    .hamburger.open span:nth-child(2) {
-      opacity: 0;
-    }
-    .hamburger.open span:nth-child(3) {
-      top: 15px;
-      transform: rotate(-45deg);
-    }
-    .mobile-menu-overlay {
-      display: none;
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: rgba(220, 93, 7, 0.98);
-      z-index: 10001;
-      justify-content: center;
-      align-items: flex-start;
-      flex-direction: column;
-    }
-    .mobile-menu-overlay.active {
-      display: flex;
-    }
-    .mobile-menu-links {
-      display: flex;
-      flex-direction: column;
-      gap: 40px;
-      align-items: flex-start;
-      padding-left: 28px;
-      margin-top: 64px;
-    }
-    .mobile-menu-links a {
-      color: #fff;
-      font-size: 2.2rem;
-      text-decoration: none;
-      font-weight: 500;
-      letter-spacing: 0.3em;
-      text-align: left;
-      text-transform: uppercase;
-      font-family: 'Baskerville', serif;
-    }
+
     .container {
       max-width: 900px;
       margin: 40px auto;
@@ -196,10 +124,7 @@
       .nav-links {
         display: none;
       }
-      .hamburger {
-        display: flex;
-        margin-top: 0;
-      }
+
       .container {
         margin: 24px auto;
         font-size: 1.1rem;
@@ -225,7 +150,7 @@
       }
     }
     .footer {
-      background: #DC5D07;
+      background: #1C1C1C;
       color: #fff;
       text-align: left;
       padding: 24px 0 24px 32px;
@@ -246,17 +171,62 @@
       font-weight: 200;
       font-family: 'Baskerville', serif;
       text-align: left;
+      font-style: normal;
     }
-    .nav-links a, .mobile-menu-links a {
+    .nav-links a {
       color: #fff;
       text-decoration: none;
       font-size: 1rem;
       font-weight: 500;
       font-style: normal;
     }
-    .nav-links a:hover, .nav-links a.active, .mobile-menu-links a:hover, .mobile-menu-links a.active {
+    .nav-links a:hover, .nav-links a.active {
       text-decoration: underline;
-      color: #F8D4B3;
+      color: #E0D5C0;
+    }
+    .main-content {
+      text-align: center;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 30px;
+    }
+    .company-name {
+      font-size: 2.2rem;
+      font-weight: 400;
+      letter-spacing: 0.2em;
+      text-transform: uppercase;
+      border: 1px solid #fff;
+      padding: 20px 30px;
+      font-style: normal;
+    }
+    .address-block {
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      font-size: 1.2rem;
+      font-style: normal;
+    }
+    .address {
+      font-size: 1.1rem;
+      font-weight: 300;
+    }
+    .divider {
+      width: 200px;
+      height: 1px;
+      background: #fff;
+      opacity: 0.3;
+    }
+    .more-info {
+      font-size: 1rem;
+      font-style: normal;
+    }
+    .link {
+      color: #fff;
+      text-decoration: underline;
+    }
+    .link:hover {
+      color: #E0D5C0;
     }
   </style>
 </head>
@@ -273,17 +243,18 @@
       <button onclick="acceptDisclaimer()">Accept and Enter Site »</button>
     </div>
   </div>
-  <nav class="navbar">
-    <div class="logo">Quaesitor Capital</div>
-    <div class="nav-links">
-    </div>
-  </nav>
+
+
   <div class="container">
-    <p class="main-description">"Out beyond ideas of wrongdoing and rightdoing, there is a field. I'll meet you there." - Rumi.</p>
+    <div class="main-content">
+      <div class="company-name">QUAESITOR CAPITAL</div>
+      
+      
+      <div class="more-info">© 2025 Quaesitor Capital Management LLC. All rights reserved.</div>
+    </div>
   </div>
-  <footer class="footer">
-    &copy; 2025 Quaesitor Capital Management LLC. All rights reserved.
-  </footer>
+  
+
   <script>
     // Show disclaimer overlay as early as possible if not accepted
     (function() {
@@ -299,26 +270,7 @@
       localStorage.setItem('disclaimerAccepted', 'true');
       document.body.classList.remove('menu-disabled');
     }
-    // Hamburger menu for mobile
-    const hamburger = document.getElementById('hamburgerMenu');
-    const mobileMenu = document.getElementById('mobileMenuOverlay');
-    hamburger && hamburger.addEventListener('click', function() {
-      const isOpen = hamburger.classList.toggle('open');
-      if (isOpen) {
-        mobileMenu.classList.add('active');
-        document.body.style.overflow = 'hidden';
-      } else {
-        mobileMenu.classList.remove('active');
-        document.body.style.overflow = '';
-      }
-    });
-    document.querySelectorAll('.mobile-menu-links a').forEach(link => {
-      link.addEventListener('click', () => {
-        mobileMenu.classList.remove('active');
-        hamburger.classList.remove('open');
-        document.body.style.overflow = '';
-      });
-    });
+
   </script>
 </body>
 </html>
