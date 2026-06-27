@@ -6,190 +6,18 @@
   <title>Quaesitor Capital</title>
   <link rel="icon" type="image/png" href="favicon.png">
   <style>
-    html, body {
-      width: 100vw;
-      overflow-x: hidden;
-    }
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
-      margin: 0;
       font-family: 'Baskerville', serif;
       background: #1C1C1C;
       color: #fff;
       min-height: 100vh;
       display: flex;
       flex-direction: column;
-      font-style: italic;
-      font-weight: 300;
-      font-size: 2rem;
-    }
-    body.menu-disabled .hamburger {
-      pointer-events: none;
-      opacity: 0.1;
-    }
-    .disclaimer-overlay {
-      position: fixed;
-      top: 0;
-      left: 0;
-      width: 100vw;
-      height: 100vh;
-      background: #1C1C1C;
-      display: flex;
       justify-content: center;
       align-items: center;
-      z-index: 10000;
-    }
-    .disclaimer-modal {
-      background: #fff;
-      color: #1C1C1C;
-      max-width: 600px;
-      width: 90%;
-      padding: 40px;
-      border-radius: 4px;
-      text-align: center;
-      font-style: normal;
-    }
-    .disclaimer-modal h1 {
-      font-size: 2rem;
-      margin: 0 0 20px;
-      font-weight: 400;
-    }
-    .disclaimer-modal h2 {
-      font-size: 1.2rem;
-      margin: 0 0 30px;
-      font-weight: 400;
-      font-style: italic;
-    }
-    .disclaimer-modal p {
-      font-size: 1rem;
-      margin: 0 0 30px;
-      text-align: left;
-    }
-    .disclaimer-modal button {
-      background: #1C1C1C;
-      color: white;
-      border: none;
-      padding: 15px 30px;
-      font-family: 'Baskerville', serif;
-      font-size: 1rem;
-      cursor: pointer;
-      border-radius: 2px;
-      transition: background-color 0.3s;
-    }
-    .disclaimer-modal button:hover {
-      background: #2C2C2C;
-    }
-    .navbar {
-      display: flex;
-      justify-content: space-between;
-      align-items: center;
-      padding: 24px 32px;
-      background: #1C1C1C;
-      color: #fff;
-      font-style: normal;
-      position: relative;
-    }
-    .logo {
-      font-size: 2rem;
-      font-weight: 500;
-      letter-spacing: 2px;
-    }
-    .nav-links {
-      display: flex;
-      gap: 32px;
-      z-index: 2;
-    }
-
-    .container {
-      max-width: 900px;
-      margin: 40px auto;
-      padding: 0 16px;
-      font-size: 1.5rem;
-      flex: 1 0 auto;
-      display: flex;
-      flex-direction: column;
-      justify-content: center;
-      align-items: center;
-      text-align: center;
-    }
-    @media (max-width: 600px) {
-      .navbar {
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
-        padding: 16px;
-      }
-      .logo {
-        font-size: 1.5rem;
-      }
-      .nav-links {
-        display: none;
-      }
-
-      .container {
-        margin: 24px auto;
-        font-size: 1.1rem;
-      }
-      .disclaimer-modal {
-        max-width: 95vw;
-        width: 95vw;
-        padding: 20px;
-        font-size: 0.95rem;
-      }
-      .disclaimer-modal h1 {
-        font-size: 1.2rem;
-      }
-      .disclaimer-modal h2 {
-        font-size: 1rem;
-      }
-      .disclaimer-modal p {
-        font-size: 0.95rem;
-      }
-      .disclaimer-modal button {
-        font-size: 1rem;
-        padding: 10px 18px;
-      }
-    }
-    .footer {
-      background: #1C1C1C;
-      color: #fff;
-      text-align: left;
-      padding: 24px 0 24px 32px;
-      font-size: 1rem;
-      position: relative;
-      bottom: 0;
-      width: 100%;
-      flex-shrink: 0;
-      font-style: normal;
-    }
-    @media (max-width: 600px) {
-      .footer {
-        padding: 16px 0 16px 16px;
-      }
-    }
-    .main-description {
-      font-size: 2rem;
-      font-weight: 200;
-      font-family: 'Baskerville', serif;
-      text-align: left;
-      font-style: normal;
-    }
-    .nav-links a {
-      color: #fff;
-      text-decoration: none;
-      font-size: 1rem;
-      font-weight: 500;
-      font-style: normal;
-    }
-    .nav-links a:hover, .nav-links a.active {
-      text-decoration: underline;
-      color: #E0D5C0;
-    }
-    .main-content {
-      text-align: center;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      gap: 30px;
+      gap: 24px;
+      overflow-x: hidden;
     }
     .company-name {
       font-size: 2.2rem;
@@ -198,83 +26,16 @@
       text-transform: uppercase;
       border: 1px solid #fff;
       padding: 20px 30px;
-      font-style: normal;
     }
-    .address-block {
-      display: flex;
-      flex-direction: column;
-      gap: 5px;
-      font-size: 1.2rem;
-      font-style: normal;
-    }
-    .address {
-      font-size: 1.1rem;
-      font-weight: 300;
-    }
-    .divider {
-      width: 200px;
-      height: 1px;
-      background: #fff;
-      opacity: 0.3;
-    }
-    .more-info {
+    .email, .copyright {
       font-size: 1rem;
-      font-style: normal;
     }
-    .link {
-      color: #fff;
-      text-decoration: underline;
-    }
-    .link:hover {
-      color: #E0D5C0;
-    }
-    .email {
-      font-size: 1rem;
-      font-style: normal;
+    @media (max-width: 600px) {
+      .company-name { font-size: 1.5rem; padding: 14px 20px; }
     }
   </style>
 </head>
 <body>
-  <div class="disclaimer-overlay" id="disclaimerOverlay" style="display:none">
-    <div class="disclaimer-modal">
-      <h1>Welcome to Quaesitor Capital Management LLC</h1>
-      <h2>(the "Company")</h2>
-      <p>Please read the disclaimer below carefully. You must accept its terms before you can proceed.</p>
-      <p>Users of this website are responsible for observing all applicable laws and regulations in their 
-        relevant jurisdictions before proceeding to access the information contained herein. 
-        By proceeding to access the information, users are deemed to have represented and warranted that the applicable laws 
-        and regulations of their relevant jurisdictions allow them to do so.</p>
-      <button onclick="acceptDisclaimer()">Accept and Enter Site »</button>
-    </div>
-  </div>
-
-
-  <div class="container">
-    <div class="main-content">
-      <div class="company-name">QUAESITOR CAPITAL</div>
-      
-      <div class="email">info@quaesitorcapital.com</div>
-      <div class="more-info">© 2025 Quaesitor Capital Management LLC. All rights reserved.</div>
-    </div>
-  </div>
-  
-
-  <script>
-    // Show disclaimer overlay as early as possible if not accepted
-    (function() {
-      if (!localStorage.getItem('disclaimerAccepted')) {
-        document.addEventListener('DOMContentLoaded', function() {
-          document.getElementById('disclaimerOverlay').style.display = 'flex';
-          document.body.classList.add('menu-disabled');
-        });
-      }
-    })();
-    function acceptDisclaimer() {
-      document.getElementById('disclaimerOverlay').style.display = 'none';
-      localStorage.setItem('disclaimerAccepted', 'true');
-      document.body.classList.remove('menu-disabled');
-    }
-
-  </script>
+  <div class="company-name">QUAESITOR CAPITAL</div>
 </body>
 </html>
